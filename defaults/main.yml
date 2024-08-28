@@ -5,3 +5,7 @@ ansible_pull_timer: |
   OnCalendar=daily
   RandomizedDelaySec=30m
 ansible_pull_url: https://github.com/<user>/ansible-pull.git
+
+templates:
+  - ansible-pull.service
+  - ansible-pull.timer

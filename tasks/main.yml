@@ -1,14 +1,15 @@
 ---
 # tasks file for ansible-pull
+- name: debug 
+  ansible.builtin.debug:
+    msg: "{{ templates  }}"
+ 
 - name: install units for ansible-pull
   become: true
   ansible.builtin.template:
-    dest: /etc/systemd/system
-    src: "{{ item.item }}"
-  loop:
-    - ansible-pull.service
-    - ansible-pull.timer
-  
+    dest: /etc/systemd/system/
+    src: "{{ item }}"
+  loop: "{{ templates }}"
 
 - name: enable ansible-pull timer
   become: true
