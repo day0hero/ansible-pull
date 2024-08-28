@@ -8,6 +8,8 @@
   loop:
     - name: ansible-pull.service
     - name: ansible-pull.timer
+  loop_control:
+    label: "{{ item.name }}"
 
 - name: enable ansible-pull timer
   become: true
