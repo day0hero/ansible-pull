@@ -4,3 +4,4 @@ ansible_pull_timer: |
   OnBootSec=5m
   OnCalendar=daily
   RandomizedDelaySec=30m
+ansible_pull_url: https://github.com/<user>/ansible-pull.git
