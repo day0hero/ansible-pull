@@ -4,10 +4,10 @@
   become: true
   ansible.builtin.template:
     dest: /etc/systemd/system
-    src: "{{ item }}"
+    src: "{{ item.name }}"
   loop:
-    - ansible-pull.service
-    - ansible-pull.timer
+    - name: ansible-pull.service
+    - name: ansible-pull.timer
 
 - name: enable ansible-pull timer
   become: true
