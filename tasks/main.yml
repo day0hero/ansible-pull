@@ -1,7 +1,8 @@
 ---
 # tasks file for ansible-pull
 - name: install units for ansible-pull
-  template:
+  become: true
+  ansible.builtin.template:
     dest: /etc/systemd/system
     src: "{{ item }}"
   loop:
@@ -9,7 +10,8 @@
     - ansible-pull.timer
 
 - name: enable ansible-pull timer
-  service:
+  become: true
+  ansible.builtin.service:
     name: ansible-pull.timer
     state: started
     enabled: yes
